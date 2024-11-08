@@ -10,13 +10,13 @@ mgmt:
 topology:
   nodes:
   # Super Spine
-    SS01:
+    xrd-SS01:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.11
       startup-config: xrd-config/SS01.cfg
 
-    SS02:
+    xrd-SS02:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.12
@@ -24,25 +24,25 @@ topology:
 
     # Spine Tier-2
 
-    SP03:
+    xrd-SP03:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.13
       startup-config: xrd-config/SP03.cfg
 
-    SP04:
+    xrd-SP04:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.14
       startup-config: xrd-config/SP04.cfg
 
-    SP05:
+    xrd-SP05:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.15
       startup-config: xrd-config/SP05.cfg
 
-    SP06:
+    xrd-SP06:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.16
@@ -50,82 +50,97 @@ topology:
 
     # Brick-0 LF Tier-1
 
-    LF07  :
+    xrd-LF07:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.17
       startup-config: xrd-config/LF07.cfg
 
-    LF08:
+    xrd-LF08:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.18
       startup-config: xrd-config/LF08.cfg
 
-    LF09:
+    xrd-LF09:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.19
       startup-config: xrd-config/LF09.cfg
 
-    LF10:
+    xrd-LF10:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.20
       startup-config: xrd-config/LF10.cfg
 
-    LF07-host:
+    xrd-LF07-host1:
       kind: bridge
 
-    LF08-host:
+    xrd-LF07-host2:
       kind: bridge
 
-    LF09-host:
+    xrd-LF08-host1:
       kind: bridge
 
-    LF10-host:
+    xrd-LF08-host2:
+      kind: bridge
+
+    xrd-LF09-host1:
+      kind: bridge
+
+    xrd-LF09-host2:
+      kind: bridge
+
+    xrd-LF10-host1:
+      kind: bridge
+
+    xrd-LF10-host2:
       kind: bridge
 
   links:
 
   # SS01
-    - endpoints: ["SS01:Gi0-0-0-0", "SP03:Gi0-0-0-0"]
-    - endpoints: ["SS01:Gi0-0-0-1", "SP04:Gi0-0-0-0"]
-    - endpoints: ["SS01:Gi0-0-0-2", "SP05:Gi0-0-0-0"]
-    - endpoints: ["SS01:Gi0-0-0-3", "SP06:Gi0-0-0-0"]
+    - endpoints: ["xrd-SS01:Gi0-0-0-0", "xrd-SP03:Gi0-0-0-0"]
+    - endpoints: ["xrd-SS01:Gi0-0-0-1", "xrd-SP04:Gi0-0-0-0"]
+    - endpoints: ["xrd-SS01:Gi0-0-0-2", "xrd-SP05:Gi0-0-0-0"]
+    - endpoints: ["xrd-SS01:Gi0-0-0-3", "xrd-SP06:Gi0-0-0-0"]
 
   # SS02
-    - endpoints: ["SS02:Gi0-0-0-0", "SP03:Gi0-0-0-1"]
-    - endpoints: ["SS02:Gi0-0-0-1", "SP04:Gi0-0-0-1"]
-    - endpoints: ["SS02:Gi0-0-0-2", "SP05:Gi0-0-0-1"]
-    - endpoints: ["SS02:Gi0-0-0-3", "SP06:Gi0-0-0-1"]
+    - endpoints: ["xrd-SS02:Gi0-0-0-0", "xrd-SP03:Gi0-0-0-1"]
+    - endpoints: ["xrd-SS02:Gi0-0-0-1", "xrd-SP04:Gi0-0-0-1"]
+    - endpoints: ["xrd-SS02:Gi0-0-0-2", "xrd-SP05:Gi0-0-0-1"]
+    - endpoints: ["xrd-SS02:Gi0-0-0-3", "xrd-SP06:Gi0-0-0-1"]
 
   # SP03
 
-    - endpoints: ["SP03:Gi0-0-0-2", "LF07:Gi0-0-0-0"]
-    - endpoints: ["SP03:Gi0-0-0-3", "LF08:Gi0-0-0-0"]
+    - endpoints: ["xrd-SP03:Gi0-0-0-2", "xrd-LF07:Gi0-0-0-0"]
+    - endpoints: ["xrd-SP03:Gi0-0-0-3", "xrd-LF08:Gi0-0-0-0"]
 
-  # SP04
-    - endpoints: ["SP04:Gi0-0-0-2", "LF07:Gi0-0-0-1"]
-    - endpoints: ["SP04:Gi0-0-0-3", "LF08:Gi0-0-0-1"]
+  # SP04  
+    - endpoints: ["xrd-SP04:Gi0-0-0-2", "xrd-LF07:Gi0-0-0-1"]
+    - endpoints: ["xrd-SP04:Gi0-0-0-3", "xrd-LF08:Gi0-0-0-1"]
 
   # SP05
-    - endpoints: ["SP05:Gi0-0-0-2", "LF09:Gi0-0-0-0"]
-    - endpoints: ["SP05:Gi0-0-0-3", "LF10:Gi0-0-0-0"]
+    - endpoints: ["xrd-SP05:Gi0-0-0-2", "xrd-LF09:Gi0-0-0-0"]
+    - endpoints: ["xrd-SP05:Gi0-0-0-3", "xrd-LF10:Gi0-0-0-0"]
 
   # SP06
-    - endpoints: ["SP06:Gi0-0-0-2", "LF09:Gi0-0-0-1"]
-    - endpoints: ["SP06:Gi0-0-0-3", "LF10:Gi0-0-0-1"]
+    - endpoints: ["xrd-SP06:Gi0-0-0-2", "xrd-LF09:Gi0-0-0-1"]
+    - endpoints: ["xrd-SP06:Gi0-0-0-3", "xrd-LF10:Gi0-0-0-1"]
 
   # LF07
-    - endpoints: ["LF07:Gi0-0-0-2", "LF07-host:LF07-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF07:Gi0-0-0-2", "xrd-LF07-host1:xrd-LF07-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF07:Gi0-0-0-3", "xrd-LF07-host2:xrd-LF07-Gi0-0-0-3"]
 
   # LF08
-    - endpoints: ["LF08:Gi0-0-0-2", "LF08-host:LF08-Gi0-0-0-2"]
-
+    - endpoints: ["xrd-LF08:Gi0-0-0-2", "xrd-LF08-host1:xrd-LF08-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF08:Gi0-0-0-3", "xrd-LF08-host2:xrd-LF08-Gi0-0-0-3"]
   # LF09
-    - endpoints: ["LF09:Gi0-0-0-2", "LF09-host:LF09-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF09:Gi0-0-0-2", "xrd-LF09-host1:xrd-LF09-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF09:Gi0-0-0-3", "xrd-LF09-host2:xrd-LF09-Gi0-0-0-3"]
 
   # LF10
-    - endpoints: ["LF10:Gi0-0-0-2", "LF10-host:LF10-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF10:Gi0-0-0-2", "xrd-LF10-host1:xrd-LF10-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF10:Gi0-0-0-3", "xrd-LF10-host2:xrd-LF10-Gi0-0-0-3"]
 
