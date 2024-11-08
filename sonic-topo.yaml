@@ -57,28 +57,28 @@ topology:
       image: cscarpit/docker-sonic-vs:latest
       mgmt-ipv4: 172.20.8.110
 
-    sonic-LF07-host1:
+    LF07-host1:
       kind: bridge
 
-    sonic-LF07-host2:
+    LF07-host2:
       kind: bridge
 
-    sonic-LF08-host1:
+    LF08-host1:
       kind: bridge
 
-    sonic-LF08-host2:
+    LF08-host2:
       kind: bridge
 
-    sonic-LF09-host1:
+    LF09-host1:
       kind: bridge
 
-    sonic-LF09-host2:
+    LF09-host2:
       kind: bridge
 
-    sonic-LF10-host1:
+    LF10-host1:
       kind: bridge
 
-    sonic-LF10-host2:
+    LF10-host2:
       kind: bridge
 
   links:
@@ -104,13 +104,13 @@ topology:
     - endpoints: ["sonic-SP06:eth3", "sonic-LF09:eth2"]
     - endpoints: ["sonic-SP06:eth4", "sonic-LF10:eth2"]
 
-    - endpoints: ["sonic-LF07:eth3", "sonic-LF07-host1:sonic-LF07-eth3"]
-    - endpoints: ["sonic-LF08:eth3", "sonic-LF08-host1:sonic-LF08-eth3"]
-    - endpoints: ["sonic-LF09:eth3", "sonic-LF09-host1:sonic-LF09-eth3"]
-    - endpoints: ["sonic-LF10:eth3", "sonic-LF10-host1:sonic-LF10-eth3"]
+    - endpoints: ["sonic-LF07:eth3", "LF07-host1:sonic-LF07-eth3"]
+    - endpoints: ["sonic-LF08:eth3", "LF08-host1:sonic-LF08-eth3"]
+    - endpoints: ["sonic-LF09:eth3", "LF09-host1:sonic-LF09-eth3"]
+    - endpoints: ["sonic-LF10:eth3", "LF10-host1:sonic-LF10-eth3"]
 
-    - endpoints: ["sonic-LF07:eth4", "sonic-LF07-host2:sonic-LF07-eth4"]
-    - endpoints: ["sonic-LF08:eth4", "sonic-LF08-host2:sonic-LF08-eth4"]
-    - endpoints: ["sonic-LF09:eth4", "sonic-LF09-host2:sonic-LF09-eth4"]
-    - endpoints: ["sonic-LF10:eth4", "sonic-LF10-host2:sonic-LF10-eth4"]
+    - endpoints: ["sonic-LF07:eth4", "LF07-host2:sonic-LF07-eth4"]
+    - endpoints: ["sonic-LF08:eth4", "LF08-host2:sonic-LF08-eth4"]
+    - endpoints: ["sonic-LF09:eth4", "LF09-host2:sonic-LF09-eth4"]
+    - endpoints: ["sonic-LF10:eth4", "LF10-host2:sonic-LF10-eth4"]
   
