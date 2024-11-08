@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 sudo brctl addbr sonic-LF07-host1
 sudo brctl addbr sonic-LF08-host1

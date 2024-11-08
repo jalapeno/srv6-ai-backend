@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 sudo brctl addbr xrd-LF07-host1
 sudo brctl addbr xrd-LF08-host1

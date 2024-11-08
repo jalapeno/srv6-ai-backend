@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 sudo ip link set sonic-LF07-host1 down
 sudo ip link set sonic-LF08-host1 down

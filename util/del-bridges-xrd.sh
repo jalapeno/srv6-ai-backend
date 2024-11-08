@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 sudo ip link set xrd-LF07-host1 down
 sudo ip link set xrd-LF08-host1 down
