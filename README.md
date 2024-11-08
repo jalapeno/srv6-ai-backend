@@ -1,6 +1,10 @@
 # srv6-ai-backend
 
-1. Spin up topology
+1. create bridges
+```
+util/add-bridges.sh
+```
+2. Spin up topology
 ```
 sudo containerlab deploy -t xrd-topo.yaml
 ```
