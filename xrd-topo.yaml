@@ -130,17 +130,17 @@ topology:
     - endpoints: ["xrd-SP06:Gi0-0-0-3", "xrd-LF10:Gi0-0-0-1"]
 
   # LF07
-    - endpoints: ["LF07:Gi0-0-0-2", "LF07-host1:xrd-LF07-Gi0-0-0-2"]
-    - endpoints: ["LF07:Gi0-0-0-3", "LF07-host2:xrd-LF07-Gi0-0-0-3"]
+    - endpoints: ["xrd-LF07:Gi0-0-0-2", "LF07-host1:xrd-LF07-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF07:Gi0-0-0-3", "LF07-host2:xrd-LF07-Gi0-0-0-3"]
 
   # LF08
-    - endpoints: ["LF08:Gi0-0-0-2", "LF08-host1:xrd-LF08-Gi0-0-0-2"]
-    - endpoints: ["LF08:Gi0-0-0-3", "LF08-host2:xrd-LF08-Gi0-0-0-3"]
+    - endpoints: ["xrd-LF08:Gi0-0-0-2", "LF08-host1:xrd-LF08-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF08:Gi0-0-0-3", "LF08-host2:xrd-LF08-Gi0-0-0-3"]
   # LF09
-    - endpoints: ["LF09:Gi0-0-0-2", "LF09-host1:xrd-LF09-Gi0-0-0-2"]
-    - endpoints: ["LF09:Gi0-0-0-3", "LF09-host2:xrd-LF09-Gi0-0-0-3"]
+    - endpoints: ["xrd-LF09:Gi0-0-0-2", "LF09-host1:xrd-LF09-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF09:Gi0-0-0-3", "LF09-host2:xrd-LF09-Gi0-0-0-3"]
 
   # LF10
-    - endpoints: ["LF10:Gi0-0-0-2", "LF10-host1:xrd-LF10-Gi0-0-0-2"]
-    - endpoints: ["LF10:Gi0-0-0-3", "LF10-host2:xrd-LF10-Gi0-0-0-3"]
+    - endpoints: ["xrd-LF10:Gi0-0-0-2", "LF10-host1:xrd-LF10-Gi0-0-0-2"]
+    - endpoints: ["xrd-LF10:Gi0-0-0-3", "LF10-host2:xrd-LF10-Gi0-0-0-3"]
 
