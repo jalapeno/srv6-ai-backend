@@ -81,7 +81,7 @@ topology:
       image: vpackets/net-tools:latest
       mgmt-ipv4: 172.20.9.21
 
-    Linux-host01:
+    Linux-host02:
       kind: linux
       image: vpackets/net-tools:latest
       mgmt-ipv4: 172.20.9.22
