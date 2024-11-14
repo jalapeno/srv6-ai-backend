@@ -1,6 +1,7 @@
 import argparse
 import json
 import sys
+import time
 from netservice import src_dst, lu, ll, ds, gp
 
 ### Jalapeno/SDN client ###
@@ -30,11 +31,12 @@ def main():
     username = "username"
     password = "password"
     database = "database"
+    _from = "_from"
+    _to = "_to"
     source = "source"
-    destination = "destination"
+    dstpfx = "destination"
     interface = "interface"
     dataplane = "dataplane"
-    country = "country"
 
     f = open(file)
     sd = json.load(f)
@@ -42,45 +44,30 @@ def main():
     user = sd[username]
     pw = sd[password]
     dbname = sd[database]
-    src = sd[source]
-    dst = sd[destination]
-    intf = sd[interface]
-    dataplane = sd[dataplane]
-    ctr = sd[country]
+    
+    # Check if input is a list of requests
+    requests = sd.get('requests', [sd])  # If no 'requests' key, treat single request as list
+    
+    for request in requests:
+        # Get parameters for this request
+        frm = request[_from]
+        to = request[_to]
+        dst = request[dstpfx]
+        intf = request[interface]
+        dp = request[dataplane]
 
-    srcpfxsplit = list(src.split('/'))
-    srcprefix = srcpfxsplit[0]
-    dstpfxsplit = list(dst.split('/'))
-    dstprefix = dstpfxsplit[0]
-
-    sd_tuple = src_dst.get_src_dst(srcprefix, dstprefix, user, pw, dbname)
-    #print(sd_tuple)
-    src_id = sd_tuple[0]
-    dst_id = sd_tuple[1]
-    if service == "ds":
-        print("Data Sovereignty Service")
-        srv6_ds = ds.ds_calc(src_id, dst_id, dst, user, pw, dbname, ctr, intf, dataplane, encap)
-        with open('log/data_sovereignty.json', 'a') as f:
-            sys.stdout = f 
-            print(srv6_ds)
-    if service == "gp":
-        print("Get All Paths Service")
-        gp_srv = gp.gp_calc(src_id, dst_id, user, pw, dbname)  
-        with open('log/get_paths.json', 'a') as f:
-            sys.stdout = f 
-            print(gp_srv)                 
-    if service == "ll":
-        print("Low Latency Service")
-        srv6_ll = ll.ll_calc(src_id, dst_id, dst, user, pw, dbname, intf, dataplane, encap) 
-        with open('log/low_latency.json', 'a') as f:
-            sys.stdout = f 
-            print(srv6_ll) 
-    if service == "lu":
-        print("Least Utilized Service")
-        srv6_lu = lu.lu_calc(src_id, dst_id, dst, user, pw, dbname, intf, dataplane, encap)
-        with open('log/least_util.json', 'a') as f:
-            sys.stdout = f 
-            print(srv6_lu)
+        if service == "lu":
+            print("\n", "Elephant Flow Load Balancing Service")
+            print("from: ", frm, "to: ", to)
+            srv6_lu = lu.lu_calc(frm, to, dst, user, pw, dbname, intf, dp, encap)
+            
+            # Write results to log file
+            with open('log/least_util.json', 'a') as f:
+                f.write(str(srv6_lu) + '\n')
+                f.flush()
+            
+            # Small delay to ensure DB updates are complete
+            time.sleep(0.1)
 
 if __name__ == '__main__':
     main()

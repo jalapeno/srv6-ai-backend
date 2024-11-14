@@ -97,7 +97,7 @@ link_EtoW ={
     'H':'2_0_0_0_0000.0000.0007_10.1.1.7_0000.0000.0006_10.1.1.6'
 }
 # Connect to ArangoDb
-client = ArangoClient(hosts='http://198.18.128.101:30852')
+client = ArangoClient(hosts='http://198.18.133.104:30852')
 db = client.db(dbname, username=user, password=password)
 
 # Set the document in Arango

@@ -3,15 +3,42 @@ from arango import ArangoClient
 from . import add_route
 
 # Query DB for least utilized path parameters and return srv6 and sr sid info
-def lu_calc(src_id, dst_id, dst, user, pw, dbname, intf, dataplane, encap):
+def lu_calc(frm, to, dst, user, pw, dbname, intf, dataplane, encap):
 
-    client = ArangoClient(hosts='http://198.18.128.101:30852')
+    client = ArangoClient(hosts='http://198.18.133.104:30852')
     db = client.db(dbname, username=user, password=pw)
-    cursor = db.aql.execute("""for v, e in outbound shortest_path """ + '"%s"' % src_id + """ \
-        to """ + '"%s"' % dst_id + """ ipv4_topology \
-            options { weightAttribute: 'percent_util_out' } filter e.mt_id != 2 \
-                return { node: v._key, name: v.name, sid: e.srv6_sid, prefix_sid: e.prefix_sid, util: e.percent_util_out } """)
+    cursor = db.aql.execute("""for v, e in outbound shortest_path """ + '"%s"' % frm + """ \
+        to """ + '"%s"' % to + """ ipv6_graph \
+            options { weightAttribute: 'load' } \
+                return { node: v._key, edge: e._key, name: v.name, sid: v.sids[0].srv6_sid, load: e.load } """)
     path = [doc for doc in cursor]
+    # print(json.dumps(path, indent=4))
+
+    # Update edge documents with load value
+    for doc in path:
+        if doc.get('edge'):  # Only process if edge key exists
+            # Get current edge document
+            edge_doc = db.collection('ipv6_graph').get({'_key': doc['edge']})
+            # Get current load value, default to 0 if it doesn't exist
+            current_load = edge_doc.get('load', 0)
+            # Update with incremented load
+            db.collection('ipv6_graph').update_match(
+                {'_key': doc['edge']},
+                {'load': current_load + 10}
+            )   
+            #print("load updated for edge: ", doc['edge'])
+
+    # Calculate average load after updates
+    total_load = 0
+    edge_count = 0
+    for doc in path:
+        if doc.get('edge'):  # Only count edges
+            edge_doc = db.collection('ipv6_graph').get({'_key': doc['edge']})
+            total_load += edge_doc.get('load', 0)  # This will now get the updated load values
+            edge_count += 1
+    
+    avg_load = total_load / edge_count if edge_count > 0 else 0
+    print(f"Average load across path: {avg_load}\n")
 
     sid = 'sid'
     usid_block = 'fc00:0:'
@@ -20,13 +47,6 @@ def lu_calc(src_id, dst_id, dst, user, pw, dbname, intf, dataplane, encap):
         if sid == None:
             locators.remove(sid)
     print("locators: ", locators)
-
-    prefix_sid = 'prefix_sid'
-    prefix_sid = [a_dict[prefix_sid] for a_dict in path]
-    for ps in list(prefix_sid):
-        if ps == None:
-            prefix_sid.remove(ps)
-    print("prefix_sids: ", prefix_sid)
 
     usid = []
     for s in locators:
@@ -49,17 +69,17 @@ def lu_calc(src_id, dst_id, dst, user, pw, dbname, intf, dataplane, encap):
 
     pathdict = {
             'statusCode': 200,
-            'source': src_id,
-            'destination': dst_id,
+            'source': frm,
+            'destination': dst,
             'sid': srv6_sid,
             'path': path
         }
 
     #print("route_add parameters = sid: ", srv6_sid, "sr_label_stack: ", prefix_sid, "dest: ", dst, "intf: ", intf, "dataplane: ", dataplane)
     if dataplane == "linux":
-        route_add = add_route.add_linux_route(dst, srv6_sid, prefix_sid, intf, encap)
+        route_add = add_route.add_linux_route(dst, srv6_sid, intf, encap)
     if dataplane == "vpp":
-        route_add = add_route.add_vpp_route(dst, srv6_sid, prefix_sid, encap)
+        route_add = add_route.add_vpp_route(dst, srv6_sid, encap)
     pathobj = json.dumps(pathdict, indent=4)
     return(pathobj)
 
