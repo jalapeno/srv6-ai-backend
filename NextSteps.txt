@@ -16,3 +16,4 @@ Next steps
 * Enhance Jalapeño to support BGP only fabrics (no IGP)
 * Populate Graph DB with telemetry stats for fabric bandwidth management
 * Develop GUI for FLB app to visualize pinning of flows to fabric paths
+* Programatically collect GPU / Training jobs endpoints and map it into Graph DB
