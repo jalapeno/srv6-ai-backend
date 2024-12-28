@@ -14,13 +14,13 @@ topology:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.11
-      startup-config: xrd-config/SS01.cfg
+      startup-config: config-xrd/SS01.cfg
 
     xrd-SS02:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.12
-      startup-config: xrd-config/SS02.cfg
+      startup-config: config-xrd/SS02.cfg
 
     # Spine Tier-2
 
@@ -28,25 +28,25 @@ topology:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.13
-      startup-config: xrd-config/SP03.cfg
+      startup-config: config-xrd/SP03.cfg
 
     xrd-SP04:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.14
-      startup-config: xrd-config/SP04.cfg
+      startup-config: config-xrd/SP04.cfg
 
     xrd-SP05:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.15
-      startup-config: xrd-config/SP05.cfg
+      startup-config: config-xrd/SP05.cfg
 
     xrd-SP06:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.16
-      startup-config: xrd-config/SP06.cfg
+      startup-config: config-xrd/SP06.cfg
 
     # Brick-0 LF Tier-1
 
@@ -54,25 +54,25 @@ topology:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.17
-      startup-config: xrd-config/LF07.cfg
+      startup-config: config-xrd/LF07.cfg
 
     xrd-LF08:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.18
-      startup-config: xrd-config/LF08.cfg
+      startup-config: config-xrd/LF08.cfg
 
     xrd-LF09:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.19
-      startup-config: xrd-config/LF09.cfg
+      startup-config: config-xrd/LF09.cfg
 
     xrd-LF10:
       kind: cisco_xrd
       image: ios-xr/xrd-control-plane:24.2.2
       mgmt-ipv4: 172.20.9.20
-      startup-config: xrd-config/LF10.cfg
+      startup-config: config-xrd/LF10.cfg
 
     # Linux Hosts 
 
