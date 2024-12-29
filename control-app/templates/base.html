@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Graph Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #f8f9fa;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 20px;
+            border-right: 1px solid #dee2e6;
+        }
+        
+        #main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 8px 16px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        
+        .active {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <h3>Navigation</h3>
+        <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="/graph" class="nav-link {% if request.path == '/graph' %}active{% endif %}">Graph</a>
+    </div>
+    
+    {% block content %}{% endblock %}
+</body>
+</html> 

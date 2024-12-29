@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="main-content">
+    <div class="controls">
+        <select id="db-instance">
+            <option value="">Select Instance</option>
+        </select>
+        <select id="graph-select" disabled>
+            <option value="">Select Graph</option>
+        </select>
+    </div>
+    <div id="graph"></div>
+</div>
+
+<script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    const instanceSelect = document.getElementById('db-instance');
+    const graphSelect = document.getElementById('graph-select');
+    
+    // Load instances
+    fetch('/api/instances')
+        .then(response => response.json())
+        .then(instances => {
+            instanceSelect.innerHTML = '<option value="">Select Instance</option>';
+            instances.forEach(instance => {
+                const option = document.createElement('option');
+                option.value = instance;
+                option.textContent = instance;
+                instanceSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error loading instances:', error));
+    
+    // Load graphs when instance is selected
+    instanceSelect.addEventListener('change', function() {
+        if (this.value) {
+            fetch(`/api/graphs/${this.value}`)
+                .then(response => response.json())
+                .then(graphs => {
+                    graphSelect.innerHTML = '<option value="">Select Graph</option>';
+                    graphs.forEach(graph => {
+                        const option = document.createElement('option');
+                        option.value = graph;
+                        option.textContent = graph;
+                        graphSelect.appendChild(option);
+                    });
+                    graphSelect.disabled = false;
+                })
+                .catch(error => console.error('Error loading graphs:', error));
+        } else {
+            graphSelect.innerHTML = '<option value="">Select Graph</option>';
+            graphSelect.disabled = true;
+        }
+    });
+    
+    // Load graph when selected
+    graphSelect.addEventListener('change', loadGraph);
+});
+
+// ... rest of your existing JavaScript code ...
+</script>
+
+<style type="text/css">
+#graph {
+    width: 100%;
+    height: 800px;
+    border: 1px solid lightgray;
+}
+.controls {
+    margin-bottom: 10px;
+}
+</style>
+{% endblock %} 

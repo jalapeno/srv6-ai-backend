@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: network-ui
+  namespace: jalapeno
+spec:
+  selector:
+    app: network-ui
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  - name: api
+    port: 8000
+    targetPort: 8000
+  type: ClusterIP 
