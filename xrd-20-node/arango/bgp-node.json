@@ -1,0 +1,348 @@
+[
+    {
+        "_key": "10.0.0.1_65000",
+        "router_id": "10.0.0.1",
+        "name": "SS01",
+        "tier": "dc-tier-2",
+        "asn": 65000,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:1::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.2_65000",
+        "router_id": "10.0.0.2",
+        "name": "SS02",
+        "tier": "dc-tier-2",
+        "asn": 65000,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:2::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.3_65000",
+        "router_id": "10.0.0.3",
+        "name": "SS03",
+        "tier": "dc-tier-2",
+        "asn": 65000,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:3::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+    {
+        "_key": "10.0.0.4_65000",
+        "router_id": "10.0.0.4",
+        "name": "SS04",
+        "tier": "dc-tier-2",
+        "asn": 65000,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:4::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.17_65001",
+        "router_id": "10.0.0.17",
+        "name": "SP01",
+        "tier": "dc-tier-1",
+        "asn": 65001,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:201::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+    {
+        "_key": "10.0.0.18_65001",
+        "router_id": "10.0.0.18",
+        "name": "SP02",
+        "tier": "dc-tier-1",
+        "asn": 65001,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:202::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.19_65001",
+        "router_id": "10.0.0.19",
+        "name": "SP03",
+        "tier": "dc-tier-1",
+        "asn": 65001,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:203::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.20_65001",
+        "router_id": "10.0.0.20",
+        "name": "SP04",
+        "tier": "dc-tier-1",
+        "asn": 65001,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:204::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.65_65002",
+        "router_id": "10.0.0.65",
+        "name": "SP65",
+        "tier": "dc-tier-1",
+        "asn": 65002,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:281::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.66_65002",
+        "router_id": "10.0.0.66",
+        "name": "SP66",
+        "tier": "dc-tier-1",
+        "asn": 65002,
+        "sids": [
+            {
+            "srv6_sid": "fc00:0:282::",
+            "srv6_endpoint_behavior": {
+                "endpoint_behavior": 48,
+                "flag": 0,
+                "algo": 0
+            },
+            "srv6_sid_structure": {
+                "locator_block_length": 32,
+                "locator_node_length": 16,
+                "function_length": 0,
+                "argument_length": 80
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.67_65002",
+        "router_id": "10.0.0.67",
+        "name": "SP67",
+        "tier": "dc-tier-1",
+        "asn": 65002,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:283::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+    {
+      "_key": "10.0.0.68_65002",
+      "router_id": "10.0.0.68",
+      "name": "SP68",
+      "tier": "dc-tier-1",
+      "asn": 65002,
+      "sids": [
+        {
+          "srv6_sid": "fc00:0:284::",
+          "srv6_endpoint_behavior": {
+            "endpoint_behavior": 48,
+            "flag": 0,
+            "algo": 0
+          }
+        }
+      ]
+    },
+    {
+        "_key": "10.0.0.33_65011",
+        "router_id": "10.0.0.33",
+        "name": "LF01",
+        "tier": "dc-tier-0",
+        "asn": 65011,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:241::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.34_65012",
+        "router_id": "10.0.0.34",
+        "name": "LF02",
+        "tier": "dc-tier-0",
+        "asn": 65012,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:242::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ] 
+      },
+      {
+        "_key": "10.0.0.35_65013",
+        "router_id": "10.0.0.35",
+        "name": "LF03",
+        "tier": "dc-tier-0",
+        "asn": 65013,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:243::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.36_65014",
+        "router_id": "10.0.0.36",
+        "name": "LF04",
+        "tier": "dc-tier-0",
+        "asn": 65014,
+        "sids": [
+        {
+            "srv6_sid": "fc00:0:244::",
+            "srv6_endpoint_behavior": {
+            "endpoint_behavior": 48,
+            "flag": 0,
+            "algo": 0
+            }
+        }
+      ] 
+    },
+    {
+        "_key": "10.0.0.81_65021",
+        "router_id": "10.0.0.81",
+        "name": "LF65",
+        "tier": "dc-tier-0",
+        "asn": 65021,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:2C1::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+      {
+        "_key": "10.0.0.82_65022",
+        "router_id": "10.0.0.82",
+        "name": "LF66",
+        "tier": "dc-tier-0",
+        "asn": 65022,
+        "sids": [
+          {
+            "srv6_sid": "fc00:0:2C2::",
+            "srv6_endpoint_behavior": {
+              "endpoint_behavior": 48,
+              "flag": 0,
+              "algo": 0
+            }
+          }
+        ]
+      },
+    {
+      "_key": "10.0.0.83_65023",
+      "router_id": "10.0.0.83",
+      "name": "LF67",
+      "tier": "dc-tier-0",
+      "asn": 65023,
+      "sids": [
+        {
+          "srv6_sid": "fc00:0:2C3::",
+          "srv6_endpoint_behavior": {
+            "endpoint_behavior": 48,
+            "flag": 0,
+            "algo": 0
+          }
+        }
+      ]
+    },
+    {
+      "_key": "10.0.0.84_65024",
+      "router_id": "10.0.0.84",
+      "name": "LF68",
+      "tier": "dc-tier-0",
+      "asn": 65024,
+      "sids": [
+        {
+          "srv6_sid": "fc00:0:2C4::",
+          "srv6_endpoint_behavior": {
+            "endpoint_behavior": 48,
+            "flag": 0,
+            "algo": 0
+          }
+        }
+      ] 
+    }
+  ]

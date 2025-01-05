@@ -1,58 +1,218 @@
 [
     {
         "_key": "host01-gpu01",
-        "ipv6_address": "fc00:0:1000:1::2",
+        "name": "host01-gpu01",
+        "ipv6_address": "fc00:0:701:1::2",
         "prefix_len": 64,
         "interface": "eth1",
-        "dataplane": "linux"
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
     },
     {
         "_key": "host01-gpu02",
-        "ipv6_address": "fc00:0:1000:2::2",
+        "name": "host01-gpu02",
+        "ipv6_address": "fc00:0:701:2::2",
         "prefix_len": 64,
         "interface": "eth2",
-        "dataplane": "linux"
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
     },
     {
         "_key": "host02-gpu01",
-        "ipv6_address": "fc00:0:1000:3::2",
+        "name": "host02-gpu01",
+        "ipv6_address": "fc00:0:701:3::2",
         "prefix_len": 64,
-        "interface": "eth1",
-        "dataplane": "linux"
+        "interface": "eth3",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
     },
     {
         "_key": "host02-gpu02",
-        "ipv6_address": "fc00:0:1000:4::2",
+        "name": "host02-gpu02",
+        "ipv6_address": "fc00:0:701:4::2",
         "prefix_len": 64,
         "interface": "eth2",
-        "dataplane": "linux"
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
     },
     {
         "_key": "host03-gpu01",
-        "ipv6_address": "fc00:0:1000:5::2",
+        "name": "host03-gpu01",
+        "ipv6_address": "fc00:0:701:5::2",
         "prefix_len": 64,
         "interface": "eth1",
-        "dataplane": "linux"
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
     },
     {
         "_key": "host03-gpu02",
-        "ipv6_address": "fc00:0:1000:6::2",
+        "name": "host03-gpu02",
+        "ipv6_address": "fc00:0:701:6::2",
         "prefix_len": 64,
         "interface": "eth2",
-        "dataplane": "linux"
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
     },
     {
         "_key": "host04-gpu01",
-        "ipv6_address": "fc00:0:1000:7::2",
+        "name": "host04-gpu01",
+        "ipv6_address": "fc00:0:701:7::2",
         "prefix_len": 64,
         "interface": "eth1",
-        "dataplane": "linux"
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
     },
     {
         "_key": "host04-gpu02",
-        "ipv6_address": "fc00:0:1000:8::2",
+        "name": "host04-gpu02",
+        "ipv6_address": "fc00:0:701:8::2",
         "prefix_len": 64,
         "interface": "eth2",
-        "dataplane": "linux"
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host05-gpu01",
+        "name": "host05-gpu01",
+        "ipv6_address": "fc00:0:701:9::2",
+        "prefix_len": 64,
+        "interface": "eth1",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host05-gpu02",
+        "name": "host05-gpu02",
+        "ipv6_address": "fc00:0:701:a::2",
+        "prefix_len": 64,
+        "interface": "eth2",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host06-gpu01",
+        "name": "host06-gpu01",
+        "ipv6_address": "fc00:0:701:b::2",
+        "prefix_len": 64,
+        "interface": "eth1",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host06-gpu02",
+        "name": "host06-gpu02",
+        "ipv6_address": "fc00:0:701:c::2",
+        "prefix_len": 64,
+        "interface": "eth2",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host07-gpu01",
+        "name": "host07-gpu01",
+        "ipv6_address": "fc00:0:701:801::2",
+        "prefix_len": 64,
+        "interface": "eth1",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host07-gpu02",
+        "name": "host07-gpu02",
+        "ipv6_address": "fc00:0:701:802::2",
+        "prefix_len": 64,
+        "interface": "eth2",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host08-gpu01",
+        "name": "host08-gpu01",
+        "ipv6_address": "fc00:0:701:803::2",
+        "prefix_len": 64,
+        "interface": "eth1",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host08-gpu02",
+        "name": "host08-gpu02",
+        "ipv6_address": "fc00:0:701:804::2",
+        "prefix_len": 64,
+        "interface": "eth2",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host09-gpu01",
+        "name": "host09-gpu01",
+        "ipv6_address": "fc00:0:701:805::2",
+        "prefix_len": 64,
+        "interface": "eth1",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host09-gpu02",
+        "name": "host09-gpu02",
+        "ipv6_address": "fc00:0:701:806::2",
+        "prefix_len": 64,
+        "interface": "eth2",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host10-gpu01",
+        "name": "host10-gpu01",
+        "ipv6_address": "fc00:0:701:807::2",
+        "prefix_len": 64,
+        "interface": "eth1",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host10-gpu02",
+        "name": "host10-gpu02",
+        "ipv6_address": "fc00:0:701:808::2",
+        "prefix_len": 64,
+        "interface": "eth2",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host11-gpu01",
+        "name": "host11-gpu01",
+        "ipv6_address": "fc00:0:701:809::2",
+        "prefix_len": 64,
+        "interface": "eth1",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host11-gpu02",
+        "name": "host11-gpu02",
+        "ipv6_address": "fc00:0:701:80a::2",
+        "prefix_len": 64,
+        "interface": "eth2",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host12-gpu01",
+        "name": "host12-gpu01",
+        "ipv6_address": "fc00:0:701:80b::2",
+        "prefix_len": 64,
+        "interface": "eth1",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
+    },
+    {
+        "_key": "host12-gpu02",
+        "name": "host12-gpu02",
+        "ipv6_address": "fc00:0:701:80c::2",
+        "prefix_len": 64,
+        "interface": "eth2",
+        "dataplane": "linux",
+        "tier": "dc-endpoint"
     }
 ]
